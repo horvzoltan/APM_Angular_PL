@@ -26,17 +26,21 @@
       <tr *ngFor='let product of filteredProducts'>
         <td>
           <img
-              [hidden]='hideImage'
-              [src]='product.imageUrl'
-              [style.width.px]='imageWidth'
-              [style.margin.px]='imageMargin'
-              [title]='product.productName'/>
+            [hidden]='hideImage'
+            [src]='product.imageUrl'
+            [style.width.px]='imageWidth'
+            [style.margin.px]='imageMargin'
+            [title]='product.productName'/>
         </td>
-        <td>{{ product.productName }}</td>
+        <td>
+          <a [routerLink]='["/products",product.productId]'>{{ product.productName }}</a>
+        </td>
         <td>{{ product.productCode | lowercase }}</td>
         <td>{{ product.releaseDate }}</td>
         <td>{{ product.price | currency:'USD':'symbol':'1.2-2' }}</td>
-        <td><pm-star [rating]='product.starRating' (ratingClicked)='onRatingClicked($event)'></pm-star></td>
+        <td>
+          <pm-star [rating]='product.starRating' (ratingClicked)='onRatingClicked($event)'></pm-star>
+        </td>
       </tr>
       </tbody>
     </table>
