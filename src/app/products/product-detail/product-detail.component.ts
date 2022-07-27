@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {IProduct} from '../../../interfaces/product';
 
@@ -16,7 +16,6 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.pageTitle += `: ${id}`;
     this.product = {
       "productId": id,
       "productName": "Leaf Rake",
